@@ -1,10 +1,37 @@
-
-import { useRef } from 'react';
+import { useRef, useState, useEffect, lazy, Suspense } from 'react';
 import Button from '@/components/Button';
 import useIntersectionObserver from '@/hooks/useIntersectionObserver';
+import { Check, AlertCircle } from 'lucide-react';
+import { supabase } from '@/lib/supabase';
+
+// Lazy load the ImageGallery component
+const ImageGallery = lazy(() => import('@/components/ImageGallery'));
 
 const HeroSection = () => {
   const heroRef = useRef<HTMLDivElement>(null);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [email, setEmail] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [useLocalStorage, setUseLocalStorage] = useState(false);
+  
+  // Check if we should use local storage fallback
+  useEffect(() => {
+    const checkSupabaseConnection = async () => {
+      try {
+        const { error } = await supabase.from('waitlist').select('count').limit(1);
+        if (error && error.code === '42P01') {
+          console.log('Using local storage fallback for waitlist');
+          setUseLocalStorage(true);
+        }
+      } catch (err) {
+        console.error('Error checking Supabase connection:', err);
+        setUseLocalStorage(true);
+      }
+    };
+    
+    checkSupabaseConnection();
+  }, []);
   
   useIntersectionObserver({
     target: heroRef,
@@ -13,15 +40,106 @@ const HeroSection = () => {
     },
   });
 
-  const scrollToSection = (sectionId: string) => {
-    const section = document.getElementById(sectionId);
-    if (section) {
-      section.scrollIntoView({ behavior: 'smooth' });
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email || isLoading) return;
+
+    setIsLoading(true);
+    setError('');
+    console.log('Starting submission process...');
+    console.log('Email:', email);
+
+    try {
+      if (useLocalStorage) {
+        // Use local storage fallback
+        const waitlist = JSON.parse(localStorage.getItem('waitlist') || '[]');
+        
+        // Check if email already exists
+        if (waitlist.some((item: any) => item.email === email)) {
+          setError('This email is already on the waitlist!');
+          setIsLoading(false);
+          return;
+        }
+        
+        // Add to local storage
+        waitlist.push({
+          email,
+          source: 'website',
+          created_at: new Date().toISOString()
+        });
+        
+        localStorage.setItem('waitlist', JSON.stringify(waitlist));
+        setIsSubmitted(true);
+        setEmail('');
+        setIsLoading(false);
+        return;
+      }
+
+      // Check if email already exists
+      const { data: existingEmails, error: fetchError } = await supabase
+        .from('waitlist')
+        .select('email')
+        .eq('email', email)
+        .single();
+
+      if (fetchError) {
+        console.error('Fetch error:', fetchError);
+        
+        // If the table doesn't exist yet, we'll get a specific error code
+        if (fetchError.code === '42P01') {
+          setError('Database setup in progress. Please try again in a few minutes.');
+          setIsLoading(false);
+          return;
+        }
+        
+        // For other errors, we'll still check if it's not a "not found" error
+        if (fetchError.code !== 'PGRST116') {
+          throw fetchError;
+        }
+      }
+
+      if (existingEmails) {
+        setError('This email is already on the waitlist!');
+        setIsLoading(false);
+        return;
+      }
+
+      // Add new email to waitlist
+      const { error: insertError } = await supabase
+        .from('waitlist')
+        .insert([
+          {
+            email,
+            source: 'website',
+            created_at: new Date().toISOString()
+          }
+        ]);
+
+      if (insertError) {
+        console.error('Insert error:', insertError);
+        
+        // If the table doesn't exist yet, we'll get a specific error code
+        if (insertError.code === '42P01') {
+          setError('Database setup in progress. Please try again in a few minutes.');
+          setIsLoading(false);
+          return;
+        }
+        
+        throw insertError;
+      }
+
+      setIsSubmitted(true);
+      setEmail('');
+    } catch (err) {
+      console.error('Error details:', err);
+      setError('Failed to join waitlist. Please try again.');
+    } finally {
+      setIsLoading(false);
     }
   };
 
   return (
-    <div className="relative min-h-screen flex items-center px-6 py-24 overflow-hidden">
+    <div className="relative min-h-screen flex flex-col items-center overflow-hidden">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-katha-purple/10 to-transparent" />
       
@@ -31,55 +149,75 @@ const HeroSection = () => {
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full bg-katha-purple blur-3xl" />
       </div>
       
-      <div className="container mx-auto max-w-6xl">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div ref={heroRef} className="animated-element">
+      {/* Full-width image gallery */}
+      <div className="w-full mt-24">
+        <Suspense fallback={<div className="h-64 bg-katha-purple/5 animate-pulse rounded-lg" />}>
+          <ImageGallery />
+        </Suspense>
+      </div>
+      
+      <div className="container mx-auto max-w-6xl px-6 mt-12">
+        {/* Centered text content */}
+        <div className="flex flex-col items-center text-center">
+          <div ref={heroRef} className="animated-element max-w-3xl">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight">
-              Discover, Read & Create <span className="gradient-text">Manga, Webtoons, and Manhwa</span> with AI
+              Discover, Read, Create <span className="gradient-text">Manga & Manhwa</span>
             </h1>
-            <p className="text-xl text-white/80 mb-8">
-              Your ultimate destination for manga online, webtoon series, and AI-generated comics.
+            <p className="text-xl text-white/80 mb-4">
+              Feel the story, See the magic!
             </p>
-            <div className="flex flex-wrap gap-4">
-              <Button 
-                size="lg"
-                onClick={() => scrollToSection("trending")}
-              >
-                Start Reading
-              </Button>
-              <Button 
-                variant="outline" 
-                size="lg"
-                onClick={() => scrollToSection("ai-generator")}
-              >
-                Create with AI
-              </Button>
+            <div className="flex items-center justify-center gap-2 mb-8">
+              <span className="animate-pulse inline-block w-2 h-2 bg-katha-purple rounded-full"></span>
+              <p className="text-sm text-katha-purple font-semibold">Coming Soon - Late 2026</p>
+              <span className="animate-pulse inline-block w-2 h-2 bg-katha-purple rounded-full"></span>
             </div>
-          </div>
-          
-          <div className="relative">
-            <img 
-              src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?q=80&w=2128&auto=format&fit=crop"
-              alt="Manga collection" 
-              className="rounded-xl shadow-2xl w-full object-cover animated-element visible"
-              style={{
-                aspectRatio: "4/3",
-                objectFit: "cover",
-                animation: "fadeIn 1s ease-out forwards",
-                transform: "perspective(800px) rotateY(-15deg) rotateX(5deg) rotate(1deg)",
-                boxShadow: "rgba(187, 134, 252, 0.4) 5px 5px 20px"
-              }}
-            />
-            <div className="absolute -bottom-6 -right-6 p-4 bg-card rounded-xl shadow-xl max-w-xs animated-element"
-              style={{
-                animation: "fadeIn 1s ease-out 0.3s forwards",
-                opacity: 0
-              }}
-            >
-              <p className="text-sm font-medium">
-                "Dive into the immersive world of manga and create your own stories with our AI tools!"
-              </p>
-            </div>
+            
+            {isSubmitted ? (
+              <div className="w-full max-w-md mx-auto bg-katha-purple/20 rounded-lg p-6 border border-katha-purple/30">
+                <div className="flex items-center justify-center mb-3">
+                  <div className="bg-katha-purple/20 rounded-full p-2">
+                    <Check className="w-6 h-6 text-katha-purple" />
+                  </div>
+                </div>
+                <h3 className="text-lg font-semibold text-white mb-2">Thank you for joining our waitlist!</h3>
+                <p className="text-white/70 text-sm">
+                  We'll keep you updated on our progress and let you know as soon as we launch. 
+                  Get ready for an amazing journey into the world of Manga & Manhwa!
+                </p>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="w-full max-w-md mx-auto">
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <input
+                    type="email"
+                    name="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="Enter your email address"
+                    className="flex-1 px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder:text-white/50 focus:outline-none focus:border-katha-purple focus:ring-1 focus:ring-katha-purple"
+                    required
+                  />
+                  <button
+                    type="submit"
+                    disabled={isLoading}
+                    className={`px-6 py-3 bg-gradient-to-r from-katha-purple to-katha-purple-light text-white font-semibold rounded-lg transition-all ${
+                      isLoading ? 'opacity-70 cursor-not-allowed' : 'hover:opacity-90'
+                    }`}
+                  >
+                    {isLoading ? 'Saving...' : 'Notify Me'}
+                  </button>
+                </div>
+                {error && (
+                  <div className="mt-2 text-red-400 text-sm flex items-center gap-1">
+                    <AlertCircle className="w-4 h-4" />
+                    <span>{error}</span>
+                  </div>
+                )}
+                <p className="text-sm text-white/50 mt-2">
+                  We'll notify you when we launch. No spam, promise!
+                </p>
+              </form>
+            )}
           </div>
         </div>
       </div>

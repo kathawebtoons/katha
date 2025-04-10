@@ -1,4 +1,3 @@
-
 import { useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -11,42 +10,58 @@ import CTASection from '@/sections/CTASection';
 
 const Index = () => {
   useEffect(() => {
-    const handleIntersection = (entries: IntersectionObserverEntry[]) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
+    console.log('Index component mounted');
+    
+    try {
+      const handleIntersection = (entries: IntersectionObserverEntry[]) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      };
+
+      const observer = new IntersectionObserver(handleIntersection, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -100px 0px'
       });
-    };
 
-    const observer = new IntersectionObserver(handleIntersection, {
-      threshold: 0.1,
-      rootMargin: '0px 0px -100px 0px'
-    });
-
-    document.querySelectorAll('.animated-element').forEach(el => {
-      observer.observe(el);
-    });
-
-    return () => {
       document.querySelectorAll('.animated-element').forEach(el => {
-        observer.unobserve(el);
+        observer.observe(el);
       });
-    };
+
+      return () => {
+        document.querySelectorAll('.animated-element').forEach(el => {
+          observer.unobserve(el);
+        });
+      };
+    } catch (error) {
+      console.error('Error in Index component:', error);
+    }
   }, []);
 
-  return (
-    <div className="min-h-screen bg-katha-dark text-white overflow-x-hidden">
-      <Navbar />
-      <HeroSection />
-      <TrendingSection />
-      <AIGeneratorSection />
-      <ValuePropositionSection />
-      <TestimonialsSection />
-      <CTASection />
-      <Footer />
-    </div>
-  );
+  try {
+    return (
+      <div className="min-h-screen bg-katha-dark text-white overflow-x-hidden">
+        <Navbar />
+        <HeroSection />
+        <TrendingSection />
+        <AIGeneratorSection />
+        <ValuePropositionSection />
+        <TestimonialsSection />
+        <CTASection />
+        <Footer />
+      </div>
+    );
+  } catch (error) {
+    console.error('Error rendering Index component:', error);
+    return (
+      <div className="min-h-screen bg-katha-dark text-white p-4">
+        <h1 className="text-2xl font-bold">Error loading page</h1>
+        <pre className="text-red-400 mt-4">{error instanceof Error ? error.message : 'Unknown error'}</pre>
+      </div>
+    );
+  }
 };
 
 export default Index;
