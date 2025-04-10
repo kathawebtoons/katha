@@ -37,7 +37,6 @@ const Navbar = () => {
             <a href="#" className="nav-link">Home</a>
             <a href="#trending" className="nav-link">Trending</a>
             <a href="#ai-generator" className="nav-link">AI Generator</a>
-            <a href="#categories" className="nav-link">Categories</a>
             <Button variant="primary" size="sm">Sign In</Button>
           </div>
 
@@ -64,7 +63,6 @@ const Navbar = () => {
               <a href="#" className="nav-link block py-2">Home</a>
               <a href="#trending" className="nav-link block py-2">Trending</a>
               <a href="#ai-generator" className="nav-link block py-2">AI Generator</a>
-              <a href="#categories" className="nav-link block py-2">Categories</a>
               <Button variant="primary" size="sm" className="w-full">Sign In</Button>
             </div>
           </div>
