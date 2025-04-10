@@ -1,0 +1,158 @@
+.home-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 95px;
+}
+
+.logo {
+  width: 240px;
+  height: 52px;
+}
+
+.logo-sub-text {
+  margin-top: 24px;
+  font-family: "Poppins";
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 36px;
+  color: #ffffff;
+}
+
+.email-input-block {
+  margin-top: 24px;
+}
+
+.email-input-box {
+  width: 696px !important;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 12px;
+  border-radius: 16px;
+  width: fit-content;
+}
+
+.email-input-field {
+  border: none;
+  outline: none;
+  padding: 10px;
+  border-radius: 8px;
+  flex-grow: 1;
+  background: none;
+  font-family: "Poppins";
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 30px;
+  color: rgba(0, 0, 0, 1);
+}
+
+.submit-button {
+  background-color: rgba(163, 215, 73, 1);
+  width: 99px;
+  height: 54px;
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: "Poppins";
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 30px;
+}
+
+.sent-text {
+  font-family: 'Poppins';
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 30px;
+  text-align: center;
+}
+
+.no-spam {
+  width: 680px;
+  margin-top: 24px;
+  font-family: "Poppins";
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: center;
+  color: rgba(255, 255, 255, 1);
+}
+
+.info {
+  width: 680px;
+  margin-top: 16px;
+  font-family: "Poppins";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  text-align: center;
+  color: #a3d749;
+}
+
+/* .cover-image {
+  position: absolute;
+  z-index: -1;
+  bottom: -156px;
+  width: 100%;
+  left: 0px;
+}
+
+.back-img {
+  width: 100%;
+} */
+
+.cover-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  position: relative;
+  bottom: 300px;
+  z-index: -1;
+}
+
+.back-img {
+  max-width: 120%;
+  max-height: 120%;
+  object-fit: contain;
+}
+
+/* Extra small devices (phones, less than 576px) */
+@media (max-width: 575px) {
+  /* Styles for phones */
+  .cover-image {
+    display: none !important;
+  }
+
+  .back-img {
+    display: none !important;
+  }
+}
+
+/* Small devices (phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767px) {
+  /* Styles for small phones and tablets */
+  .cover-image {
+    display: none !important;
+  }
+
+  .back-img {
+    display: none !important;
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991px) {
+  /* Styles for tablets and small desktops */
+  .cover-image {
+    display: none !important;
+  }
+
+  .back-img {
+    display: none !important;
+  }
+}
