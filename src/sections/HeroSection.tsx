@@ -164,7 +164,7 @@ const HeroSection = () => {
               Discover, Read, Create <span className="gradient-text">Manga & Manhwa</span>
             </h1>
             <p className="text-xl text-white/80 mb-4">
-              Feel the story, See the magic!
+              Feel the story. See the magic!
             </p>
             <div className="flex items-center justify-center gap-2 mb-8">
               <span className="animate-pulse inline-block w-2 h-2 bg-katha-purple rounded-full"></span>
