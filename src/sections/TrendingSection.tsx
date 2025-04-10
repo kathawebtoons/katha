@@ -45,7 +45,7 @@ const TrendingSection = () => {
   ];
 
   return (
-    <section id="trending" className="pt-6 pb-24 px-6">
+    <section id="trending" className="pt-12 pb-24 px-6">
       <div className="container mx-auto max-w-6xl">
         <div ref={sectionRef} className="animated-element">
           <div className="text-center mb-16">

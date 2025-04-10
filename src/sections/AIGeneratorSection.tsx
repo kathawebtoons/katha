@@ -1,4 +1,3 @@
-
 import { useRef } from 'react';
 import Button from '@/components/Button';
 import { Sparkles, PenTool, ImagePlus } from 'lucide-react';
@@ -17,20 +16,20 @@ const AIGeneratorSection = () => {
   const steps = [
     {
       id: 1,
-      title: "Enter Story Prompt",
+      title: "1. Enter Story Prompt",
       description: "Describe your scene, character, or entire story concept.",
       icon: PenTool
     },
     {
       id: 2,
-      title: "Select Art Style",
-      description: "Choose from various manga and anime art styles.",
+      title: "2. Select Art Style",
+      description: "Choose from various art styles or make your own!",
       icon: Sparkles
     },
     {
       id: 3,
-      title: "Get Your Comic Instantly",
-      description: "Our AI generates high-quality manga panels within seconds.",
+      title: "3. Your Web Comic is ready!",
+      description: "Our AI generates high-quality output within seconds.",
       icon: ImagePlus
     }
   ];
@@ -60,9 +59,21 @@ const AIGeneratorSection = () => {
                 <p className="text-white/70 mb-4">
                   {step.description}
                 </p>
-                <div className="text-katha-purple font-bold text-4xl mt-auto">
-                  {step.id}
-                </div>
+                {step.id === 1 && (
+                  <div className="w-full h-96 mb-4 overflow-hidden rounded-lg flex-grow">
+                    <img src="/Text.png" alt="Story Prompt Example" className="w-full h-full object-cover" />
+                  </div>
+                )}
+                {step.id === 2 && (
+                  <div className="w-full h-96 mb-4 overflow-hidden rounded-lg flex-grow">
+                    <img src="/ArtStyles.png" alt="Art Styles Example" className="w-full h-full object-cover" />
+                  </div>
+                )}
+                {step.id === 3 && (
+                  <div className="w-full h-96 mb-4 overflow-hidden rounded-lg flex-grow">
+                    <img src="/Image.png" alt="Comic Generation Example" className="w-full h-full object-cover" />
+                  </div>
+                )}
               </div>
             ))}
           </div>
@@ -71,9 +82,6 @@ const AIGeneratorSection = () => {
             <p className="text-white/70 mb-6 max-w-2xl mx-auto">
               Transform your ideas into stunning manga or webtoon-style art with our powerful AI Comic Generator. Perfect for storytellers of all levels.
             </p>
-            <Button size="lg">
-              Try AI Comic Generator
-            </Button>
           </div>
         </div>
       </div>
