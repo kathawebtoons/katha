@@ -12,7 +12,8 @@
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
     "preview": "vite preview",
-    "optimize-images": "node scripts/optimize-images.js"
+    "optimize-images": "node scripts/optimize-images.js",
+    "postinstall": "node scripts/postinstall.js"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
@@ -69,6 +70,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",
+    "@rollup/rollup-linux-x64-gnu": "4.9.5",
     "@tailwindcss/typography": "^0.5.15",
     "@types/node": "^22.14.0",
     "@types/react": "^18.3.3",
@@ -82,6 +84,7 @@
     "imagemin-mozjpeg": "^10.0.0",
     "lovable-tagger": "^1.1.7",
     "postcss": "^8.4.47",
+    "rollup": "4.9.5",
     "sharp": "^0.34.1",
     "tailwindcss": "^3.4.11",
     "typescript": "^5.5.3",
