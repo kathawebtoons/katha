@@ -200,7 +200,7 @@ const HeroSection = () => {
                   <button
                     type="submit"
                     disabled={isLoading}
-                    className={`px-6 py-3 bg-gradient-to-r from-katha-purple to-katha-purple-light text-white font-semibold rounded-lg transition-all ${
+                    className={`px-6 py-3 bg-gradient-to-r from-katha-purple to-katha-purple-light text-black font-semibold rounded-lg transition-all ${
                       isLoading ? 'opacity-70 cursor-not-allowed' : 'hover:opacity-90'
                     }`}
                   >
@@ -213,7 +213,7 @@ const HeroSection = () => {
                     <span>{error}</span>
                   </div>
                 )}
-                <p className="text-sm text-white/50 mt-2">
+                <p className="text-sm text-white/50 mt-4">
                   We'll notify you when we launch. No spam, promise!
                 </p>
               </form>

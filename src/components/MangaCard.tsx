@@ -1,4 +1,3 @@
-
 import { cn } from "@/lib/utils";
 
 interface MangaCardProps {
@@ -14,7 +13,7 @@ const MangaCard = ({ title, cover, genres, type, className }: MangaCardProps) =>
     <div className={cn("bg-card rounded-xl overflow-hidden shadow-lg transition-all hover:shadow-xl hover:scale-105 cursor-pointer", className)}>
       <div className="relative h-64 overflow-hidden">
         <img src={cover} alt={title} className="w-full h-full object-cover" />
-        <div className="absolute top-2 right-2 bg-katha-purple text-white text-xs font-bold uppercase px-2 py-1 rounded">
+        <div className="absolute top-2 right-2 bg-[#F258B2] text-white text-xs font-bold uppercase px-2 py-1 rounded">
           {type}
         </div>
       </div>

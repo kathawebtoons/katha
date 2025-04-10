@@ -1,4 +1,3 @@
-
 import { useRef } from 'react';
 import TestimonialCard from '@/components/TestimonialCard';
 import useIntersectionObserver from '@/hooks/useIntersectionObserver';
@@ -32,7 +31,7 @@ const TestimonialsSection = () => {
   ];
 
   return (
-    <section className="py-24 px-6">
+    <section className="py-24 px-6 bg-black">
       <div className="container mx-auto max-w-6xl">
         <div ref={sectionRef} className="animated-element">
           <div className="text-center mb-16">

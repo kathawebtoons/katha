@@ -80,7 +80,7 @@ const AIGeneratorSection = () => {
           
           <div className="mt-12 text-center">
             <p className="text-white/70 mb-6 max-w-2xl mx-auto">
-              Transform your ideas into stunning manga or webtoon-style art with our powerful AI Comic Generator. Perfect for storytellers of all levels.
+              Katha's AI Agent transforms your ideas into stunning manga or manhwa. Perfect for storytellers of all levels. You can even train a model on your own art style!
             </p>
           </div>
         </div>

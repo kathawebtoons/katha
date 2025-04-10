@@ -1,4 +1,3 @@
-
 import { useRef } from 'react';
 import { BookOpen, Sparkles, Users } from 'lucide-react';
 import useIntersectionObserver from '@/hooks/useIntersectionObserver';
@@ -35,7 +34,7 @@ const ValuePropositionSection = () => {
   ];
 
   return (
-    <section className="py-24 px-6 bg-secondary">
+    <section className="py-24 px-6 bg-black">
       <div className="container mx-auto max-w-6xl">
         <div ref={sectionRef} className="animated-element">
           <div className="text-center mb-16">

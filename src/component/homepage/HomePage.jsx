@@ -59,7 +59,7 @@ function HomePage() {
         <div className="no-spam">
           We promise: NO SPAM! 🌟 Your email tells us{" "}
           <span style={{ color: "#A3D749" }}>you're as excited as we are </span>
-          to shake up the world of webtoons and digital comics. 🚀 {`Let’s`}{" "}
+          to shake up the world of webtoons and digital comics. 🚀 {`Let's`}{" "}
           make something epic together!
         </div>
         <div className="info">

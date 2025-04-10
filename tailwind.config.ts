@@ -64,9 +64,9 @@ export default {
 				},
 				katha: {
 					dark: '#121212',
-					purple: '#BB86FC',
-					'purple-dark': '#8B5CF6',
-					'purple-light': '#D6BCFA'
+					purple: '#a3e635',
+					'purple-dark': '#8bc34a',
+					'purple-light': '#c5e86c'
 				}
 			},
 			borderRadius: {
