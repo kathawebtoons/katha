@@ -1,3 +1,7 @@
+# Katha AI Manga Verse
+
+Last updated: Fri Apr 11 09:50:37 2025 +0530
+
 # Welcome to your Lovable project
 
 ## Project info
