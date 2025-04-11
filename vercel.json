@@ -7,8 +7,8 @@
       "config": {
         "buildCommand": "npm run build",
         "outputDirectory": "dist",
-        "installCommand": "rm -rf node_modules package-lock.json && npm install --legacy-peer-deps --ignore-scripts",
-        "nodeVersion": "22.x"
+        "installCommand": "npm install",
+        "nodeVersion": "18.x"
       }
     }
   ],
