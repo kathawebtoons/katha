@@ -7,6 +7,7 @@ const ImageGallery = () => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   const images = [
+    '/rotdchbanner.jpeg',
     '/optimized/sl_ragnarok_banner.jpeg',
     '/optimized/smys_banner.jpeg',
     '/optimized/sss_banner.jpeg',
