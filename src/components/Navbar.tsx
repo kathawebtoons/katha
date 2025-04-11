@@ -29,7 +29,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between">
           <div className="flex items-center">
             <a href="/" className="flex items-center">
-              <img src="/kathalogo.png" alt="Katha Logo" className="h-8 w-auto" />
+              <img src="/kathalogo.png" alt="Katha Logo" className="h-6 w-auto" />
             </a>
           </div>
 
