@@ -4,7 +4,7 @@ import HeroSection from '@/sections/HeroSection';
 import TrendingSection from '@/sections/TrendingSection';
 import CTASection from '@/sections/CTASection';
 import AIGeneratorSection from '@/sections/AIGeneratorSection';
-import CategoriesSection from '@/sections/CategoriesSection';
+// import CategoriesSection from '@/sections/CategoriesSection';
 import ValuePropositionSection from '@/sections/ValuePropositionSection';
 import TestimonialsSection from '@/sections/TestimonialsSection';
 import Footer from '@/components/Footer';
@@ -19,7 +19,7 @@ function App() {
           <TrendingSection />
           <CTASection />
           <AIGeneratorSection />
-          <CategoriesSection />
+          {/* <CategoriesSection /> */}
           <ValuePropositionSection />
           <TestimonialsSection />
         </main>
