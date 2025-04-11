@@ -8,7 +8,7 @@
         "buildCommand": "npm run build",
         "outputDirectory": "dist",
         "installCommand": "npm install --legacy-peer-deps --ignore-scripts",
-        "nodeVersion": "18.x"
+        "nodeVersion": "22.x"
       }
     }
   ],
