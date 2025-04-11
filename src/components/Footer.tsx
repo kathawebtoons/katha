@@ -57,7 +57,7 @@ const Footer = () => {
         </div>
         
         <div className="border-t border-white/10 pt-8 text-center text-white/50 text-sm">
-          <p>© {new Date().getFullYear()} Katha. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Katha. Made with love in India. All rights reserved.</p>
         </div>
       </div>
     </footer>
