@@ -23,13 +23,25 @@
     {
       "src": "/(.*\\.js)",
       "headers": {
-        "content-type": "application/javascript"
+        "content-type": "application/javascript",
+        "cache-control": "public, max-age=31536000, immutable"
+      },
+      "continue": true
+    },
+    {
+      "src": "/(.*\\.css)",
+      "headers": {
+        "content-type": "text/css",
+        "cache-control": "public, max-age=31536000, immutable"
       },
       "continue": true
     },
     {
       "src": "/(.*)",
-      "dest": "/index.html"
+      "dest": "/index.html",
+      "headers": {
+        "content-type": "text/html"
+      }
     }
   ]
 } 
