@@ -12,109 +12,209 @@ const PrivacyPolicy = () => {
         <p className="text-white/70 mb-8">Effective Date: March 5, 2025</p>
         
         <p className="mb-6">
-          Katha Entertainment ("we," "our," or "us") is committed to protecting your privacy. This Privacy
-          Policy explains how we collect, use, and safeguard your information when you use our mobile
-          applications ("Apps") available on the Google Play Store. By using our Apps, you agree to the
-          collection and use of information in accordance with this policy.
+          Katha Entertainment ("we", "our" or "us") operates mobile applications (the "Apps") on the Google Play Store. 
+          This Privacy Policy explains what information we collect, how we use and share it, and your rights.
         </p>
 
         <section className="mb-8">
-          <h2 className="text-2xl font-bold mb-4">1. Information We Collect</h2>
-          <p className="mb-4">We may collect the following types of information:</p>
+          <h2 className="text-2xl font-bold mb-4">1. Scope & Consent</h2>
+          <p>
+            By downloading or using our Apps, you consent to the collection, use, disclosure, and storage of your 
+            information as described in this Privacy Policy. If you do not agree, please do not install or use the Apps.
+          </p>
+        </section>
+
+        <section className="mb-8">
+          <h2 className="text-2xl font-bold mb-4">2. Information We Collect</h2>
+          
+          <h3 className="text-xl font-semibold mb-2">2.1 Personal Information</h3>
+          <p className="mb-2">Collected only if you choose to provide it:</p>
+          <ul className="list-disc pl-6 space-y-2 mb-4">
+            <li>
+              <strong>Account info:</strong> Name, email address, phone number (e.g., when you contact support or sign up via email).
+            </li>
+            <li>
+              <strong>Payment details:</strong> When you make in‑app purchases, we collect billing info via Google Play's secure payments; 
+              we never see your full credit‑card number.
+            </li>
+          </ul>
+
+          <h3 className="text-xl font-semibold mb-2">2.2 Automatically Collected Data</h3>
+          <ul className="list-disc pl-6 space-y-2 mb-4">
+            <li>
+              <strong>Device & system:</strong> Device model, OS version, unique device identifiers (e.g., Advertising ID).
+            </li>
+            <li>
+              <strong>Usage analytics:</strong> Screens viewed, features used, session length, crash reports (via Firebase Analytics & Crashlytics).
+            </li>
+            <li>
+              <strong>Performance & diagnostics:</strong> App errors, load times, network performance.
+            </li>
+          </ul>
+
+          <h3 className="text-xl font-semibold mb-2">2.3 Location Data (Optional)</h3>
+          <p className="mb-2">If you grant permission, we may collect:</p>
+          <ul className="list-disc pl-6 space-y-2 mb-4">
+            <li>
+              <strong>Approximate location:</strong> City or region based on IP.
+            </li>
+            <li>
+              <strong>Precise GPS data:</strong> Only if you enable location‑based features (e.g., regional content recommendations).
+            </li>
+          </ul>
+
+          <h3 className="text-xl font-semibold mb-2">2.4 Third‑Party SDKs & Cookies</h3>
+          <p>
+            We use Google Firebase, Google Analytics for Firebase, and AdMob; these may set cookies or similar tracking technologies.
+            You can opt out of personalized ads by resetting or opting out of your device's Advertising ID.
+          </p>
+        </section>
+
+        <section className="mb-8">
+          <h2 className="text-2xl font-bold mb-4">3. How We Use Your Information</h2>
+          <div className="overflow-x-auto">
+            <table className="min-w-full border border-gray-700">
+              <thead>
+                <tr className="bg-gray-800">
+                  <th className="px-4 py-2 text-left">Purpose</th>
+                  <th className="px-4 py-2 text-left">Data Used</th>
+                  <th className="px-4 py-2 text-left">Legal Basis</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-t border-gray-700">
+                  <td className="px-4 py-2">App functionality & maintenance</td>
+                  <td className="px-4 py-2">Device info, usage logs</td>
+                  <td className="px-4 py-2">Legitimate interest</td>
+                </tr>
+                <tr className="border-t border-gray-700">
+                  <td className="px-4 py-2">Feature improvement & personalization</td>
+                  <td className="px-4 py-2">Usage analytics</td>
+                  <td className="px-4 py-2">Legitimate interest</td>
+                </tr>
+                <tr className="border-t border-gray-700">
+                  <td className="px-4 py-2">Crash reporting & technical support</td>
+                  <td className="px-4 py-2">Crash logs, diagnostics</td>
+                  <td className="px-4 py-2">Legitimate interest</td>
+                </tr>
+                <tr className="border-t border-gray-700">
+                  <td className="px-4 py-2">Communication & updates</td>
+                  <td className="px-4 py-2">Email address (opt‑in)</td>
+                  <td className="px-4 py-2">Your consent</td>
+                </tr>
+                <tr className="border-t border-gray-700">
+                  <td className="px-4 py-2">In‑app purchases & billing</td>
+                  <td className="px-4 py-2">Purchase history</td>
+                  <td className="px-4 py-2">Contract performance</td>
+                </tr>
+                <tr className="border-t border-gray-700">
+                  <td className="px-4 py-2">Advertising & marketing (optional)</td>
+                  <td className="px-4 py-2">Advertising ID, analytics</td>
+                  <td className="px-4 py-2">Your consent</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section className="mb-8">
+          <h2 className="text-2xl font-bold mb-4">4. Data Retention</h2>
+          <p className="mb-2">
+            <strong>Personal Information:</strong> Retained as long as your account is active and up to 2 years after last activity, 
+            unless a longer retention period is required by law.
+          </p>
+          <p>
+            <strong>Analytics & Device Logs:</strong> Retained for up to 26 months, then aggregated or deleted.
+          </p>
+        </section>
+
+        <section className="mb-8">
+          <h2 className="text-2xl font-bold mb-4">5. Information Sharing & Disclosure</h2>
+          <p className="mb-4">
+            We do not sell or rent your personal information. We may share your data with:
+          </p>
           <ul className="list-disc pl-6 space-y-2">
-            <li>
-              <strong>Personal Information:</strong> Information that identifies you personally, such as your name,
-              email address, or phone number, only if you voluntarily provide it to us (e.g., through
-              customer support inquiries).
-            </li>
-            <li>
-              <strong>Non-Personal Information:</strong> Information that does not identify you personally, including
-              but not limited to device information (e.g., device model, operating system), usage data
-              (e.g., features used, time spent), and analytics data.
-            </li>
+            <li>Service providers (e.g., Firebase, analytics, cloud hosting) under strict confidentiality.</li>
+            <li>Legal authorities when required by law (e.g., subpoenas, court orders).</li>
+            <li>Acquirers: If we merge with or are acquired by another company, we will notify you before transferring data.</li>
           </ul>
         </section>
 
         <section className="mb-8">
-          <h2 className="text-2xl font-bold mb-4">2. How We Use Your Information</h2>
-          <p className="mb-4">We use the collected information for various purposes:</p>
+          <h2 className="text-2xl font-bold mb-4">6. Your Rights & Controls</h2>
           <ul className="list-disc pl-6 space-y-2">
             <li>
-              <strong>To Provide and Maintain Our Apps:</strong> Ensuring the proper functioning and performance
-              of our Apps.
+              <strong>Access & Portability:</strong> You can request a copy of your personal information.
             </li>
             <li>
-              <strong>To Improve Our Apps:</strong> Analyzing usage patterns to enhance user experience and add
-              new features.
+              <strong>Correction:</strong> Ask us to correct inaccuracies.
             </li>
             <li>
-              <strong>To Communicate with You:</strong> Responding to your inquiries, providing support, and
-              sharing updates or promotional materials, if you have opted in to receive them.
+              <strong>Deletion:</strong> Request erasure of your account and data (subject to legal exceptions).
+            </li>
+            <li>
+              <strong>Opt‑out:</strong> Withdraw consent for marketing emails or personalized ads at any time.
+            </li>
+            <li>
+              <strong>Do Not Track:</strong> Our Apps do not respond to "Do Not Track" signals; use your device/browser settings to limit tracking.
             </li>
           </ul>
-        </section>
-
-        <section className="mb-8">
-          <h2 className="text-2xl font-bold mb-4">3. Information Sharing and Disclosure</h2>
-          <p className="mb-4">We do not sell, trade, or otherwise transfer your personal information to outside parties except in
-          the following circumstances:</p>
-          <ul className="list-disc pl-6 space-y-2">
-            <li>
-              <strong>With Your Consent:</strong> We may share your information with third parties if you have given
-              us explicit consent to do so.
-            </li>
-            <li>
-              <strong>For Legal Reasons:</strong> We may disclose your information if required by law or in response
-              to valid requests by public authorities.
-            </li>
-          </ul>
-        </section>
-
-        <section className="mb-8">
-          <h2 className="text-2xl font-bold mb-4">4. Data Security</h2>
-          <p>
-            We implement appropriate security measures to protect your information from unauthorized
-            access, alteration, disclosure, or destruction. However, please be aware that no method of
-            transmission over the internet or electronic storage is 100% secure.
+          <p className="mt-4">
+            To exercise these rights, contact us as described below.
           </p>
         </section>
 
         <section className="mb-8">
-          <h2 className="text-2xl font-bold mb-4">5. Third-Party Services</h2>
+          <h2 className="text-2xl font-bold mb-4">7. Children's Privacy</h2>
           <p>
-            Our Apps may contain links to third-party websites or services that are not operated by us. We
-            have no control over and assume no responsibility for the content, privacy policies, or practices
-            of any third-party sites or services.
+            Our Apps are not designed for children under 13. We do not knowingly collect personal information from children under 13. 
+            If you believe we have collected such data, please contact us— we will promptly delete it.
           </p>
         </section>
 
         <section className="mb-8">
-          <h2 className="text-2xl font-bold mb-4">6. Children's Privacy</h2>
+          <h2 className="text-2xl font-bold mb-4">8. Data Security</h2>
           <p>
-            Our Apps are not intended for use by children under the age of 13. We do not knowingly collect
-            personal information from children under 13. If we become aware that we have inadvertently
-            collected such information, we will take steps to delete it as soon as possible.
+            We use industry‑standard security measures (encryption in transit via TLS, encrypted storage, access controls) to protect your data. 
+            However, no system is 100% secure. Use strong passwords and keep your device updated.
           </p>
         </section>
 
         <section className="mb-8">
-          <h2 className="text-2xl font-bold mb-4">7. Changes to This Privacy Policy</h2>
+          <h2 className="text-2xl font-bold mb-4">9. International Transfers</h2>
           <p>
-            We may update our Privacy Policy from time to time. We will notify you of any changes by
-            posting the new Privacy Policy on this page. You are advised to review this Privacy Policy
-            periodically for any changes.
+            Your data may be processed and stored in India or other countries where our service providers operate. 
+            We ensure adequate safeguards (e.g., standard contractual clauses) for any international transfers.
           </p>
         </section>
 
         <section className="mb-8">
-          <h2 className="text-2xl font-bold mb-4">8. Contact Us</h2>
-          <p className="mb-2">If you have any questions or concerns about this Privacy Policy, please contact us at:</p>
+          <h2 className="text-2xl font-bold mb-4">10. Third‑Party Links</h2>
+          <p>
+            Our Apps may link to external sites or services (e.g., social media, payment processors). 
+            We are not responsible for their privacy practices. Please review their policies separately.
+          </p>
+        </section>
+
+        <section className="mb-8">
+          <h2 className="text-2xl font-bold mb-4">11. Changes to This Policy</h2>
+          <p>
+            We may update this Privacy Policy for legal, technical, or business reasons. We will post the revised policy with a new 
+            "Effective Date" at the top and, where appropriate, notify you via in‑app notice or email.
+          </p>
+        </section>
+
+        <section className="mb-8">
+          <h2 className="text-2xl font-bold mb-4">12. Contact Us</h2>
+          <p className="mb-2">If you have questions, requests, or complaints, please reach out to:</p>
           <div className="space-y-2">
             <p>Katha Entertainment</p>
             <p><a href="mailto:katha.webtoons@gmail.com" className="text-katha-purple hover:underline">katha.webtoons@gmail.com</a></p>
-            <p>+918280080850</p>
+            <p>+91 82800 80850</p>
           </div>
         </section>
+
+        <p className="text-center text-white/70 mt-12">— End of Policy —</p>
       </div>
     </div>
   );
