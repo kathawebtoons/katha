@@ -38,6 +38,7 @@ const Navbar = () => {
             <a href="#" className="nav-link">Home</a>
             <a href="#trending" className="nav-link">Read</a>
             <a href="#ai-generator" className="nav-link">Create</a>
+            <a href="/privacy-policy" className="nav-link">Privacy Policy</a>
           </div>
 
           {/* Mobile Navigation Button */}
@@ -63,6 +64,7 @@ const Navbar = () => {
               <a href="#" className="nav-link block py-2">Home</a>
               <a href="#trending" className="nav-link block py-2">Read</a>
               <a href="#ai-generator" className="nav-link block py-2">Create</a>
+              <a href="/privacy-policy" className="nav-link block py-2">Privacy Policy</a>
             </div>
           </div>
         )}
