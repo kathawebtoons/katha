@@ -46,10 +46,10 @@ const Index = () => {
         <Navbar />
         <HeroSection />
         <TrendingSection />
+        <CTASection />
         <AIGeneratorSection />
         <ValuePropositionSection />
         <TestimonialsSection />
-        <CTASection />
         <Footer />
       </div>
     );
