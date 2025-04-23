@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
 import HeroSection from '@/sections/HeroSection';
 import TrendingSection from '@/sections/TrendingSection';
 import AIGeneratorSection from '@/sections/AIGeneratorSection';
@@ -50,7 +49,6 @@ const Index = () => {
         <AIGeneratorSection />
         <ValuePropositionSection />
         <TestimonialsSection />
-        <Footer />
       </div>
     );
   } catch (error) {
