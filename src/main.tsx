@@ -1,6 +1,10 @@
 import { createRoot } from 'react-dom/client'
 import App from './App.tsx'
 import './index.css'
+import { initializeHotjar } from './lib/hotjar'
+
+// Initialize Hotjar
+initializeHotjar();
 
 const rootElement = document.getElementById("root");
 if (!rootElement) {
